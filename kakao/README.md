@@ -40,9 +40,9 @@
 
 4. 요청 경로 매핑
     📄 ~/controller/HomeController.java
-        - 메인 화면
-            * 🔗 /  
-            * 📄 index.html
+    - 메인 화면
+        - 🔗 /
+        - 📄 index.html
 
         
 
