@@ -1,4 +1,4 @@
-package com.aloha.kakao.config;
+package com.aloha.kakaojoin.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

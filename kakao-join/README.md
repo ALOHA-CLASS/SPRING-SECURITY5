@@ -18,22 +18,37 @@
         - MyBatis 설정
 
 3. ERD
+    https://www.erdcloud.com/d/gqtj2t7rW3R46Cy8z
+
 
 4. 테이블 정의
+    - USER
+    - USER_AUTH
+    - USER_SOCIAL
+
 
 4. 도메인
     - Users.java
     - UserAuth.java
-    - ()
+    - UserSocial.java
+    - CustomeUser.java
+    - OAuthAttributes.java
 
-5. 서비스
+5. 데이터
+    - UserMapper.xml
+    - UserMapper.java
 
-6. 스프링 시큐리티 설정
+6. 서비스
+    - OAuthService.java
+    - OAuthServiceImpl.java
+
+
+
+7. 스프링 시큐리티 설정
     - 📄 ~/config/SecufityConfig.java
         
-       
 
-7. 요청 경로 매핑
+8. 요청 경로 매핑
     📄 ~/controller/HomeController.java
     - 메인 화면
         - 🔗 /

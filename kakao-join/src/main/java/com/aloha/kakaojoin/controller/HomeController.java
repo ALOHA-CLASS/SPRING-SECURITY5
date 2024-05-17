@@ -1,4 +1,4 @@
-package com.aloha.kakao.controller;
+package com.aloha.kakaojoin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
