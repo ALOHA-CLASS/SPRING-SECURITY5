@@ -1,4 +1,4 @@
-package com.aloha.kakaojoin.config;
+package com.aloha.kakao.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +10,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 @EnableWebSecurity
 @Configuration
-public class SecufityConfig {
+public class SecurityConfig {
 
     /**
      * 🔐 스프링 시큐리티 설정 메소드

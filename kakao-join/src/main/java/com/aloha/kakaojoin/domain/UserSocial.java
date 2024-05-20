@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class UserSocial {
     private String id;
-    private String userId;
+    private String username;
     private String provider;
     private String socialId;
     private Date createdAt;

@@ -5,6 +5,9 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 
+import lombok.Getter;
+
+@Getter
 public class CustomUser extends DefaultOAuth2User {
 
     private Users user;
@@ -15,6 +18,18 @@ public class CustomUser extends DefaultOAuth2User {
             ,oAuthAttributes.getNameAttributeKey() )
             ;
         this.user = user;
+    }
+
+    public String getName() {
+        return user.getName();
+    }
+
+    public String getEmail() {
+        return user.getEmail();
+    }
+
+    public String profile() {
+        return user.getProfile();
     }
 
 }

@@ -39,6 +39,8 @@
     - UserMapper.java
 
 6. 서비스
+    - UserService.java
+    - UserServiceImpl.java
     - OAuthService.java
     - OAuthServiceImpl.java
 

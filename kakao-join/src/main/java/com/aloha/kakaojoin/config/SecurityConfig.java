@@ -1,16 +1,20 @@
-package com.aloha.kakao.config;
+package com.aloha.kakaojoin.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
-import static org.springframework.security.config.Customizer.withDefaults;
+import com.aloha.kakaojoin.service.OAuthService;
 
 @EnableWebSecurity
 @Configuration
-public class SecufityConfig {
+public class SecurityConfig {
+
+    @Autowired
+    private OAuthService oAuthService;
 
     /**
      * 🔐 스프링 시큐리티 설정 메소드
@@ -25,10 +29,20 @@ public class SecufityConfig {
                                             .antMatchers("/").permitAll()
                                             .anyRequest().authenticated());
         // 👩‍💻🔐 OAuth2 로그인 기능 활성화
-        http.oauth2Login(withDefaults());
+        // ✅ withDefaults() : 기본 설정
+        // http.oauth2Login(withDefaults());
+
+        // 👩‍💻🔐 OAuth2 로그인 커스텀
+        // ✅ userInfoEndpoint()            : 사용자 정보 설정 객체 가져오기
+        // ✅ userService(oAuthService)     : 사용자 정보 설정 객체로, 로그인 후 처리할 구현 클래스 등록
+        http.oauth2Login(login -> login
+                                    .userInfoEndpoint() 
+                                    .userService(oAuthService));
 
         return http.build();
     }
+
+
 
     
 }
