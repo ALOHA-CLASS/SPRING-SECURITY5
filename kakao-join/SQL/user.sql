@@ -1,3 +1,4 @@
+-- Active: 1716205885858@@127.0.0.1@3306@aloha
 
 DROP TABLE IF EXISTS user;
 
@@ -27,3 +28,4 @@ VALUES ( UUID(), 'admin', '$2a$12$TrN..KcVjciCiz.5Vj96YOBljeVTTGJ9AUKmtfbGpgc9hm
 
 -- 회원 전체 조회
 SELECT * FROM user;
+

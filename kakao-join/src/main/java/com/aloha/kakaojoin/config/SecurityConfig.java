@@ -28,11 +28,7 @@ public class SecurityConfig {
         http.authorizeRequests(requests -> requests
                                             .antMatchers("/").permitAll()
                                             .anyRequest().authenticated());
-        // 👩‍💻🔐 OAuth2 로그인 기능 활성화
-        // ✅ withDefaults() : 기본 설정
-        // http.oauth2Login(withDefaults());
-
-        // 👩‍💻🔐 OAuth2 로그인 커스텀
+        // 👩‍💻🔐 OAuth2 로그인 
         // ✅ userInfoEndpoint()            : 사용자 정보 설정 객체 가져오기
         // ✅ userService(oAuthService)     : 사용자 정보 설정 객체로, 로그인 후 처리할 구현 클래스 등록
         http.oauth2Login(login -> login
@@ -41,8 +37,6 @@ public class SecurityConfig {
 
         return http.build();
     }
-
-
 
     
 }
