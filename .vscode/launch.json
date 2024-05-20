@@ -19,6 +19,16 @@
             "projectName": "kakao-join",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-KakaoCustomApplication<kakao-custom>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.aloha.kakaocustom.KakaoCustomApplication",
+            "projectName": "kakao-custom",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
