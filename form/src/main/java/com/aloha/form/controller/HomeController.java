@@ -15,8 +15,6 @@ import com.aloha.form.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
 
-
-
 @Slf4j
 @Controller
 public class HomeController {
@@ -92,8 +90,5 @@ public class HomeController {
         log.info("사용 가능한 아이디 입니다." + username);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
-    
-    
-    
     
 }
