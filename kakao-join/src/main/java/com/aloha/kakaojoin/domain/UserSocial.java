@@ -10,6 +10,9 @@ public class UserSocial {
     private String username;
     private String provider;
     private String socialId;
+    private String name;
+    private String email;
+    private String picture;
     private Date createdAt;
     private Date updatedAt;
 }

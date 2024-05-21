@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.aloha.kakaocustom.domain.CustomUser;
 import com.aloha.kakaocustom.domain.OAuthAttributes;
@@ -46,6 +47,7 @@ public class OAuthServiceImpl implements OAuthService {
      *      3️⃣ 회원 가입 또는 정보 갱신
      *      4️⃣ Customuser(⬅OAuth2User) 객체 생성 후 반환
      */
+    @Transactional
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         log.info("::::::::::::::: OAuthServiceImpl - loadUser() :::::::::::::::");
@@ -122,6 +124,7 @@ public class OAuthServiceImpl implements OAuthService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        // ✨👩‍💼 신규 회원
         if( joinedUser == null ) {
             log.info("***** 소셜 회원 가입 *****");
             try {
@@ -129,9 +132,34 @@ public class OAuthServiceImpl implements OAuthService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else {
+        } 
+        // ✅👩‍💼 기존 회원
+        // - 기존 회원이면, 소셜 회원 정보 변경 여부 확인 후 소셜 회원 정보 수정
+        // 1️⃣ user_social 조회       [selectSocial]
+        // 2️⃣ 정보 변경 여부 확인    
+        // 3️⃣ user_social 수정       [updateSocial]
+        else {
             log.info("***** 소설 회원 정보 갱신 *****");
             log.info("joinedUser : " + joinedUser);
+
+             // 1️⃣ user_social 조회       [selectSocial]
+            UserSocial joinedUserSocial = null;
+            try {
+                joinedUserSocial = userMapper.selectSocial(userSocial);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            if( joinedUserSocial != null ) {
+                try {
+                    // 2️⃣ 정보 변경 여부 확인    
+                    // 3️⃣ user_social 수정       [updateSocial]
+                    update(joinedUserSocial, oAuthAttributes);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
         }
 
 
@@ -186,8 +214,35 @@ public class OAuthServiceImpl implements OAuthService {
             newUserSocial.setProvider(userSocial.getProvider());
             newUserSocial.setSocialId(userSocial.getSocialId());
             newUserSocial.setUsername(username);
+            newUserSocial.setName(oAuthAttributes.getName());
+            newUserSocial.setEmail(oAuthAttributes.getEmail());
+            newUserSocial.setPicture(oAuthAttributes.getPicture());
             result += userMapper.insertSocial(newUserSocial);
         }
+        return result;
+    }
+
+    /**
+     * 소셜 회원 정보 수정
+     */
+    @Override
+    public int update(UserSocial userSocial, OAuthAttributes oAuthAttributes) throws Exception {
+        int result = 0;
+
+        String name = userSocial.getName();
+        String email = userSocial.getEmail();
+        String picture = userSocial.getPicture();
+
+        if( !name.equals(oAuthAttributes.getName()) )   name = oAuthAttributes.getName();
+        if( !email.equals(oAuthAttributes.getEmail()) )   email = oAuthAttributes.getEmail();
+        if( !picture.equals(oAuthAttributes.getPicture()) )   picture = oAuthAttributes.getPicture();
+
+        userSocial.setName(name);
+        userSocial.setEmail(email);
+        userSocial.setPicture(picture);
+
+        result = userMapper.updateSocial(userSocial);
+
         return result;
     }
     

@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.aloha.kakaojoin.mapper.UserMapper">
+<mapper namespace="com.aloha.kakaocustom.mapper.UserMapper">
 
     <resultMap type="Users" id="userMap">
         <id property="id" column="id" />
@@ -101,7 +101,7 @@
     <!-- 소셜 회원 수정 -->
     <update id="updateSocial">
         UPDATE user_social
-           SET user_id = #{userId}
+           SET username = #{username}
               ,provider = #{provider}
               ,social_id = #{socialId}
               ,name = #{name}
@@ -109,7 +109,7 @@
               ,picture = #{picture}
               ,updated_at = #{updatedAt}
         WHERE provider = #{provider} 
-        AND user_id = #{userId}
+        AND social_id = #{socialId}
     </update>
 
     <!-- 소셜정보로 회원 조회 -->

@@ -1,18 +1,20 @@
-package com.aloha.kakaocustom.domain;
+package com.aloha.form.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
 @Data
-public class UserSocial {
+public class Users {
     private String id;
     private String username;
-    private String provider;
-    private String socialId;
+    private String password;
     private String name;
     private String email;
-    private String picture;
+    private String profile;
     private Date createdAt;
     private Date updatedAt;
+    private int enabled;
+    private List<UserAuth> authList;
 }

@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.aloha.kakaojoin.domain.CustomUser;
 import com.aloha.kakaojoin.domain.OAuthAttributes;
@@ -46,6 +47,7 @@ public class OAuthServiceImpl implements OAuthService {
      *      3️⃣ 회원 가입 또는 정보 갱신
      *      4️⃣ Customuser(⬅OAuth2User) 객체 생성 후 반환
      */
+    @Transactional
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         log.info("::::::::::::::: OAuthServiceImpl - loadUser() :::::::::::::::");
@@ -186,6 +188,9 @@ public class OAuthServiceImpl implements OAuthService {
             newUserSocial.setProvider(userSocial.getProvider());
             newUserSocial.setSocialId(userSocial.getSocialId());
             newUserSocial.setUsername(username);
+            newUserSocial.setName(oAuthAttributes.getName());
+            newUserSocial.setEmail(oAuthAttributes.getEmail());
+            newUserSocial.setPicture(oAuthAttributes.getPicture());
             result += userMapper.insertSocial(newUserSocial);
         }
         return result;

@@ -19,6 +19,9 @@ public interface OAuthService extends OAuth2UserService<OAuth2UserRequest, OAuth
 
     // ✨👩‍💼 소셜 회원 가입
     public int join(UserSocial userSocial, OAuthAttributes oAuthAttributes) throws Exception;
+
+    // 소셜 회원 수정
+    public int update(UserSocial userSocial, OAuthAttributes oAuthAttributes) throws Exception;
     
     
 }

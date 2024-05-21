@@ -1,0 +1,4 @@
+-- Active: 1714007442487@@127.0.0.1@3306@aloha
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS user_auth;
+DROP TABLE IF EXISTS user_social;

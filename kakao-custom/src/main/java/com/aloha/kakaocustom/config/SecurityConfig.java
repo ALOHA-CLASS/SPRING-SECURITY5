@@ -31,13 +31,12 @@ public class SecurityConfig {
         // 👩‍💻🔐 OAuth2 로그인 
         // ✅ userInfoEndpoint()            : 사용자 정보 설정 객체 가져오기
         // ✅ userService(oAuthService)     : 사용자 정보 설정 객체로, 로그인 후 처리할 구현 클래스 등록
+        // ✅ loginPage(경로)               : 커스텀 로그인 페이지 경로 지정
         http.oauth2Login(login -> login
                                     .loginPage("/login")
                                     .userInfoEndpoint() 
                                     .userService(oAuthService)
-                                    
                                     );
-
         return http.build();
     }
 
