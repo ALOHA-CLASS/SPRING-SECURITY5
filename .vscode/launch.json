@@ -39,6 +39,16 @@
             "projectName": "form",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-FormRemembermeApplication<form-rememberme>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.aloha.formrememberme.FormRemembermeApplication",
+            "projectName": "form-rememberme",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
