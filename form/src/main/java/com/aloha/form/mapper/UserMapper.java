@@ -12,7 +12,7 @@ public interface UserMapper {
     public Users login(String username) throws Exception;
 
     // 회원 조회
-    public Users select(String id) throws Exception;
+    public Users select(String username) throws Exception;
 
     // 회원 가입
     public int join(Users user) throws Exception;

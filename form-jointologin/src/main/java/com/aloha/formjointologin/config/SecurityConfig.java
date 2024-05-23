@@ -1,4 +1,4 @@
-package com.aloha.formrememberme.config;
+package com.aloha.formjointologin.config;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 

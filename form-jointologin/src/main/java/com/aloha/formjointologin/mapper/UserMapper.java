@@ -1,14 +1,17 @@
-package com.aloha.formrememberme.service;
+package com.aloha.formjointologin.mapper;
 
-import com.aloha.formrememberme.domain.UserAuth;
-import com.aloha.formrememberme.domain.Users;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface UserService {
-    
+import com.aloha.formjointologin.domain.UserAuth;
+import com.aloha.formjointologin.domain.Users;
+
+@Mapper
+public interface UserMapper {
+
     // 로그인
-    public boolean login(Users user) throws Exception;
+    public Users login(String username) throws Exception;
 
-    // 조회
+    // 회원 조회
     public Users select(String username) throws Exception;
 
     // 회원 가입

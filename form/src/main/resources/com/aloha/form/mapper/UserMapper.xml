@@ -57,7 +57,7 @@
               ,updated_at
               ,auth
         FROM user u LEFT OUTER JOIN user_auth auth ON u.username = auth.username
-        WHERE u.id = #{id}
+        WHERE u.username = #{username}
     </select>
 
     <!-- 회원 가입 -->

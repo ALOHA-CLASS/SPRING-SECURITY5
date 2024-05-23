@@ -49,6 +49,16 @@
             "projectName": "form-rememberme",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-FormJointologinApplication<form-jointologin>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.aloha.formjointologin.FormJointologinApplication",
+            "projectName": "form-jointologin",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

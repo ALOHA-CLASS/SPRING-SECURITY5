@@ -1,7 +1,7 @@
-package com.aloha.formrememberme.service;
+package com.aloha.formjointologin.service;
 
-import com.aloha.formrememberme.domain.UserAuth;
-import com.aloha.formrememberme.domain.Users;
+import com.aloha.formjointologin.domain.UserAuth;
+import com.aloha.formjointologin.domain.Users;
 
 public interface UserService {
     

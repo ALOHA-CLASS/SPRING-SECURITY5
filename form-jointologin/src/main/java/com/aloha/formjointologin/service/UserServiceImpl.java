@@ -1,4 +1,4 @@
-package com.aloha.formrememberme.service;
+package com.aloha.formjointologin.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -8,9 +8,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.aloha.formrememberme.domain.UserAuth;
-import com.aloha.formrememberme.domain.Users;
-import com.aloha.formrememberme.mapper.UserMapper;
+import com.aloha.formjointologin.domain.UserAuth;
+import com.aloha.formjointologin.domain.Users;
+import com.aloha.formjointologin.mapper.UserMapper;
 
 @Service
 public class UserServiceImpl implements UserService {
