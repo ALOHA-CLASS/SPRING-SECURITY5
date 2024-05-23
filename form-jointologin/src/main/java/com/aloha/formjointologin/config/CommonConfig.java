@@ -32,7 +32,5 @@ public class CommonConfig {
             throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-
-    
     
 }

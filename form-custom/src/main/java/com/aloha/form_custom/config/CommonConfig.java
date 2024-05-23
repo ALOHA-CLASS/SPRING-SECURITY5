@@ -1,4 +1,4 @@
-package com.aloha.formrememberme.config;
+package com.aloha.form_custom.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,7 +32,5 @@ public class CommonConfig {
             throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-
-    
     
 }

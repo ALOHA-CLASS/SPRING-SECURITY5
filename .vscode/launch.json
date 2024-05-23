@@ -59,6 +59,16 @@
             "projectName": "form-jointologin",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-FormCustomApplication<form-custom>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.aloha.form_custom.FormCustomApplication",
+            "projectName": "form-custom",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
