@@ -40,7 +40,10 @@ public class SecurityConfig {
         // 🔐 폼 로그인 설정
         // ✅ 커스텀 로그인 페이지
         http.formLogin(login -> login.loginPage("/login")
-                                     .loginProcessingUrl("/login"));
+                                     .loginProcessingUrl("/login")
+                                     .usernameParameter("id")
+                                     .passwordParameter("pw")
+                                     );
 
         // ✅ 사용자 정의 인증 설정
         http.userDetailsService(userDetailServiceImpl);
@@ -48,7 +51,9 @@ public class SecurityConfig {
         // 🔄 자동 로그인 설정
         http.rememberMe(me -> me.key("aloha")
                                 .tokenRepository(tokenRepository())
-                                .tokenValiditySeconds(60 * 60 * 24 * 7));
+                                .tokenValiditySeconds(60 * 60 * 24 * 7)
+                                .rememberMeParameter("auto-login")
+                                );
 
         return http.build();
     }
