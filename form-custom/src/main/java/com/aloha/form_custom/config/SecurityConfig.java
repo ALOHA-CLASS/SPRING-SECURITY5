@@ -41,8 +41,8 @@ public class SecurityConfig {
         // ✅ 커스텀 로그인 페이지
         http.formLogin(login -> login.loginPage("/login")
                                      .loginProcessingUrl("/login")
-                                     .usernameParameter("id")
-                                     .passwordParameter("pw")
+                                    //  .usernameParameter("id")
+                                    //  .passwordParameter("pw")
                                      );
 
         // ✅ 사용자 정의 인증 설정
@@ -52,7 +52,7 @@ public class SecurityConfig {
         http.rememberMe(me -> me.key("aloha")
                                 .tokenRepository(tokenRepository())
                                 .tokenValiditySeconds(60 * 60 * 24 * 7)
-                                .rememberMeParameter("auto-login")
+                                // .rememberMeParameter("auto-login")
                                 );
 
         return http.build();
