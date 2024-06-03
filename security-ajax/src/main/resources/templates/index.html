@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인</title>
+</head>
+<body>
+  <h1>메인</h1>
+  <input type="text" id="content">
+  <button type="button" onclick="insert()">등록</button>
+  
+  <script>
+    let boardNo = 1
+    let userNo = 1
+    let csrfToken = "[[${_csrf.token}]]"
+
+    function insert() {
+      let content = document.getElementById("content").value
+      console.log(`boardNo : ${boardNo}`)
+      console.log(`userNo : ${userNo}`)
+      console.log(`content : ${content}`)
+
+      let data = {
+        "boardNo" : boardNo,
+        "userNo" : userNo,
+        "content" : content
+      }
+
+      let request = new XMLHttpRequest()
+      request.open("POST", "/reply")
+      request.setRequestHeader("Content-Type", "application/json")
+      request.setRequestHeader("X-CSRF-TOKEN", csrfToken)
+      request.send( JSON.stringify(data) )
+
+    }
+  </script>
+</body>
+</html>

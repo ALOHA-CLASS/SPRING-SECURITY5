@@ -69,6 +69,16 @@
             "projectName": "form-custom",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SecurityAjaxApplication<security-ajax>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.aloha.security_ajax.SecurityAjaxApplication",
+            "projectName": "security-ajax",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
